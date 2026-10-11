@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropshipping Store - Your Online Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+  <header class="bg-indigo-600 text-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold tracking-wide">Dropshipping Store</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="admin.html" class="bg-indigo-800 px-3 py-1.5 rounded text-sm font-semibold hover:bg-indigo-900 transition">Admin Panel</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-indigo-100 py-10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-indigo-900 mb-2">সেরা মানের পণ্য কিনুন সহজে</h2>
+      <p class="text-gray-600">আমাদের ড্রপশিপিং স্টোরে আপনাকে স্বাগতম!</p>
+    </div>
+  </section>
+
+  <main class="container mx-auto px-4 py-8 flex-grow">
+    <h3 class="text-xl font-bold mb-6 text-gray-800">সর্বশেষ প্রোডাক্টসমূহ</h3>
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+  </main>
+
+  <section class="container mx-auto px-4 my-8">
+    <div id="bottom-banner-container" class="w-full flex justify-center items-center overflow-hidden rounded-lg shadow-sm bg-white p-2 border"></div>
+  </section>
+
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center text-sm">
+      <p>&copy; 2026 Dropshipping Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
