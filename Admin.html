@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Dropshipping Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <header class="bg-gray-900 text-white py-4 shadow">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Admin Panel Dashboard</h1>
+      <a href="index.html" class="text-sm bg-indigo-600 px-3 py-1.5 rounded hover:bg-indigo-700">Go to Store</a>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 max-w-4xl space-y-8">
+    
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-lg font-bold mb-4 border-b pb-2">নতুন প্রোডাক্ট যোগ করুন</h2>
+      <form id="add-product-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">প্রোডাক্টের নাম</label>
+          <input type="text" id="prod-name" required class="w-full border rounded px-3 py-2 text-sm focus:outline-indigo-500">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">মূল্য ($ / ৳)</label>
+            <input type="number" id="prod-price" required class="w-full border rounded px-3 py-2 text-sm focus:outline-indigo-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">ছবি URL (Image Link)</label>
+            <input type="url" id="prod-img" required class="w-full border rounded px-3 py-2 text-sm focus:outline-indigo-500">
+          </div>
+        </div>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-indigo-700">প্রোডাক্ট সেভ করুন</button>
+      </form>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-lg font-bold mb-4 border-b pb-2">নিচের ব্যানার এড (Bottom Banner Ad) সেটিংস</h2>
+      <form id="banner-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">ব্যানার ইমেজের URL</label>
+          <input type="url" id="banner-img" placeholder="https://via.placeholder.com/728x90" required class="w-full border rounded px-3 py-2 text-sm focus:outline-indigo-500">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">এড লিংক (Target URL)</label>
+          <input type="url" id="banner-link" placeholder="https://example.com" class="w-full border rounded px-3 py-2 text-sm focus:outline-indigo-500">
+        </div>
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-green-700">ব্যানার আপডেট করুন</button>
+      </form>
+    </div>
+
+  </main>
+
+  <script>
+    document.getElementById('add-product-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('prod-name').value;
+      const price = document.getElementById('prod-price').value;
+      const img = document.getElementById('prod-img').value;
+
+      const products = JSON.parse(localStorage.getItem('ds_products') || '[]');
+      products.push({ id: Date.now(), name, price, img });
+      localStorage.setItem('ds_products', JSON.stringify(products));
+
+      alert('প্রোডাক্ট সফলভাবে যোগ করা হয়েছে!');
+      this.reset();
+    });
+
+    document.getElementById('banner-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const img = document.getElementById('banner-img').value;
+      const link = document.getElementById('banner-link').value;
+
+      const bannerData = { img, link };
+      localStorage.setItem('ds_banner', JSON.stringify(bannerData));
+
+      alert('ব্যানার এড আপডেট হয়েছে!');
+    });
+  </script>
+</body>
+</html>
