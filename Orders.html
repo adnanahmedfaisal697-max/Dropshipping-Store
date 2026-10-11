@@ -1,0 +1,38 @@
+​<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>অর্ডারসমূহ</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+h1 { text-align: center; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #fff; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #6a1b9a; color: white; }
+</style>
+</head>
+<body>
+<h1>অর্ডারসমূহ</h1>
+<table>
+<thead>
+<tr>
+<th>প্রোডাক্টের নাম</th>
+<th>মূল্য</th>
+</tr>
+</thead>
+<tbody id="orderTableBody">
+<!-- অর্ডার এখানে আসবে -->
+</tbody>
+</table>
+​<script>
+const orders = JSON.parse(localStorage.getItem('orders')) || [];
+const tableBody = document.getElementById('orderTableBody');
+​orders.forEach(order => {
+const row = document.createElement('tr');
+row.innerHTML = <td>${order.productName}</td><td>$${order.price}</td>;
+tableBody.appendChild(row);
+});
+</script>
+</body>
+</html>
